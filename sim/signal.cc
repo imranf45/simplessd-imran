@@ -74,6 +74,7 @@
 #include <iostream>
 
 #include <signal.h>
+#include <stdint.h>
 
 #ifdef _MSC_VER
 
@@ -126,7 +127,9 @@ LONG WINAPI exceptionHandler(LPEXCEPTION_POINTERS pExceptionInfo) {
 
 #define FRAMECOUNT 32
 
-static uint8_t stack[SIGSTKSZ * 2];
+
+//static uint8_t stack[SIGSTKSZ * 2];
+int* stack = new int[SIGSTKSZ*2];
 
 void print_backtrace();
 
